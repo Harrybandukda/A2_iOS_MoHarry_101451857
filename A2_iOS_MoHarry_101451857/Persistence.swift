@@ -14,8 +14,7 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newItem = Product(context: viewContext)
         }
         do {
             try viewContext.save()
@@ -53,4 +52,16 @@ struct PersistenceController {
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
+    
+    func delete(_ product: Product) {
+        let context = container.viewContext
+        context.delete(product)
+        
+        do {
+            try context.save()
+        } catch {
+            print("❌ Error deleting product: \(error.localizedDescription)")
+        }
+    }
+
 }

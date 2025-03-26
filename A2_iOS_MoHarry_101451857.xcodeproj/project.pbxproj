@@ -18,6 +18,7 @@
 		4A2D16952D94A982008AD75F /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D16942D94A982008AD75F /* ProductListView.swift */; };
 		4A2D16972D94A998008AD75F /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D16962D94A998008AD75F /* ProductDetailView.swift */; };
 		4A2D16992D94A9C1008AD75F /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D16982D94A9C1008AD75F /* AddProductView.swift */; };
+		4A2D169D2D94C944008AD75F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2D169C2D94C944008AD75F /* AboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		4A2D16942D94A982008AD75F /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		4A2D16962D94A998008AD75F /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		4A2D16982D94A9C1008AD75F /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
+		4A2D169C2D94C944008AD75F /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				4A2D16942D94A982008AD75F /* ProductListView.swift */,
 				4A2D16962D94A998008AD75F /* ProductDetailView.swift */,
 				4A2D16982D94A9C1008AD75F /* AddProductView.swift */,
+				4A2D169C2D94C944008AD75F /* AboutView.swift */,
 			);
 			path = A2_iOS_MoHarry_101451857;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				4A2D16972D94A998008AD75F /* ProductDetailView.swift in Sources */,
 				4A2D16802D94A853008AD75F /* ContentView.swift in Sources */,
 				4A2D16992D94A9C1008AD75F /* AddProductView.swift in Sources */,
+				4A2D169D2D94C944008AD75F /* AboutView.swift in Sources */,
 				4A2D16952D94A982008AD75F /* ProductListView.swift in Sources */,
 				4A2D16932D94A958008AD75F /* ProductViewModel.swift in Sources */,
 				4A2D168A2D94A854008AD75F /* A2_iOS_MoHarry_101451857.xcdatamodeld in Sources */,

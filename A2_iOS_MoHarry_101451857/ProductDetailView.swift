@@ -11,29 +11,39 @@ struct ProductDetailView: View {
     let product: Product
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            Text(product.name ?? "Unknown")
+        VStack(spacing: 20) {
+            Text(product.name ?? "No Name")
                 .font(.largeTitle)
                 .bold()
-
-            Text("Description: \(product.desc ?? "No description")")
+                .padding()
+            
+            Text(product.desc ?? "No Description")
                 .font(.body)
-
-            Text("Price: $\(product.price, specifier: "%.2f")")
-                .font(.title2)
-                .bold()
-
-            Text("Provider: \(product.provider ?? "Unknown")")
-                .font(.subheadline)
                 .foregroundColor(.gray)
+                .padding()
+                .multilineTextAlignment(.center)
+
+            HStack {
+                Text("Price: $\(product.price, specifier: "%.2f")")
+                    .font(.title2)
+                    .bold()
+                    .foregroundColor(.blue)
+                
+                Spacer()
+                
+                Text("Provider: \(product.provider ?? "Unknown")")
+                    .font(.headline)
+                    .foregroundColor(.orange)
+            }
+            .padding()
 
             Spacer()
+
+            .padding(.horizontal, 20)
         }
         .padding()
-        .navigationTitle(product.name ?? "Product")
     }
 }
-
 
 
 

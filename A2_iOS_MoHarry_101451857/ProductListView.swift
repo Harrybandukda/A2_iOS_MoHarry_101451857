@@ -12,14 +12,22 @@ struct ProductListView: View {
 
     var body: some View {
         NavigationView {
-            List(viewModel.products, id: \.id) { product in
-                NavigationLink(destination: ProductDetailView(product: product)) {
-                    VStack(alignment: .leading) {
-                        Text(product.name ?? "Unknown")
-                            .font(.headline)
-                        Text(product.desc ?? "No description")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
+            List {
+                ForEach(viewModel.products) { product in
+                    NavigationLink(destination: ProductDetailView(product: product)) {
+                        VStack(alignment: .leading) {
+                            Text(product.name ?? "Unknown")
+                                .font(.headline)
+                            Text(product.desc ?? "No description")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                }
+                .onDelete { indexSet in
+                    for index in indexSet {
+                        let productToDelete = viewModel.products[index]
+                        viewModel.deleteProduct(productToDelete)
                     }
                 }
             }

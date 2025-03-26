@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    let product: Product
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 20) {
+            Text(product.name ?? "Unknown")
+                .font(.largeTitle)
+                .bold()
+
+            Text("Description: \(product.desc ?? "No description")")
+                .font(.body)
+
+            Text("Price: $\(product.price, specifier: "%.2f")")
+                .font(.title2)
+                .bold()
+
+            Text("Provider: \(product.provider ?? "Unknown")")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+
+            Spacer()
+        }
+        .padding()
+        .navigationTitle(product.name ?? "Product")
     }
 }
 
-#Preview {
-    ProductDetailView()
-}
+
+
+
+

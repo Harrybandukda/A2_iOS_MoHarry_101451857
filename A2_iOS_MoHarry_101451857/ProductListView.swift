@@ -8,10 +8,26 @@
 import SwiftUI
 
 struct ProductListView: View {
+    @ObservedObject var viewModel = ProductViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(viewModel.products, id: \.id) { product in
+                NavigationLink(destination: ProductDetailView(product: product)) {
+                    VStack(alignment: .leading) {
+                        Text(product.name ?? "Unknown")
+                            .font(.headline)
+                        Text(product.desc ?? "No description")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
+            .navigationTitle("Products")
+        }
     }
 }
+
 
 #Preview {
     ProductListView()

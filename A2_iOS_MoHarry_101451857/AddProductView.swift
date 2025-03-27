@@ -18,6 +18,7 @@ struct AddProductView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
+
                 Text("Add New Product")
                     .font(.largeTitle)
                     .bold()

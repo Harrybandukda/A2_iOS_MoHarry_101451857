@@ -20,7 +20,6 @@ class ProductViewModel: ObservableObject {
         let request: NSFetchRequest<Product> = Product.fetchRequest()
         do {
             products = try context.fetch(request)
-            if products.isEmpty { seedData() } 
         } catch {
             print("Failed to fetch products: \(error)")
         }
@@ -47,18 +46,6 @@ class ProductViewModel: ObservableObject {
 
         saveContext()
         fetchProducts()
-    }
-
-    func seedData() {
-        let sampleProducts = [
-            ("iPhone 16 Pro", "Latest Apple iPhone", 999.99, "Apple"),
-            ("Galaxy S25 +", "Samsung latest phone", 1299.99, "Samsung"),
-            ("MacBook Air", "Apple M4 laptop", 2599.99, "Apple"),
-        ]
-
-        for product in sampleProducts {
-            addProduct(name: product.0, desc: product.1, price: product.2, provider: product.3)
-        }
     }
 
     private func saveContext() {

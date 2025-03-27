@@ -13,17 +13,16 @@ struct AddProductView: View {
     @State private var desc = ""
     @State private var price = ""
     @State private var provider = ""
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-
                 Text("Add New Product")
                     .font(.largeTitle)
                     .bold()
                     .padding(.top, 10)
-                
+
                 VStack(spacing: 15) {
                     CustomTextField(title: "Product Name", text: $name)
                     CustomTextField(title: "Description", text: $desc)
@@ -31,11 +30,11 @@ struct AddProductView: View {
                     CustomTextField(title: "Provider", text: $provider)
                 }
                 .padding()
-                
+
                 Button(action: {
                     if let priceDouble = Double(price), !name.isEmpty {
                         viewModel.addProduct(name: name, desc: desc, price: priceDouble, provider: provider)
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     }
                 }) {
                     Text("Add Product")
@@ -58,6 +57,7 @@ struct AddProductView: View {
         }
     }
 }
+
 
 struct CustomTextField: View {
     let title: String

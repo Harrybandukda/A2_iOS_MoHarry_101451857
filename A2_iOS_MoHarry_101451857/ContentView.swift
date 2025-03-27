@@ -17,11 +17,6 @@ struct ContentView: View {
                     Label("Products", systemImage: "list.bullet")
                 }
 
-            AddProductView(viewModel: viewModel)
-                .tabItem {
-                    Label("Add", systemImage: "plus.circle")
-                }
-
             AboutView()
                 .tabItem {
                     Label("About", systemImage: "info.circle")

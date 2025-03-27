@@ -17,7 +17,7 @@ struct ProductListView: View {
                     .font(.largeTitle)
                     .bold()
                     .padding(.top, 10)
-	
+
                 if viewModel.products.isEmpty {
                     VStack {
                         Image(systemName: "cart.badge.plus")
@@ -41,13 +41,7 @@ struct ProductListView: View {
                     List {
                         ForEach(viewModel.products) { product in
                             NavigationLink(destination: ProductDetailView(product: product)) {
-                                VStack(alignment: .leading) {
-                                    Text(product.name ?? "Unknown")
-                                        .font(.headline)
-                                    Text(product.desc ?? "No description")
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
-                                }
+                                ProductRow(product: product)
                             }
                         }
                         .onDelete { indexSet in
@@ -61,6 +55,43 @@ struct ProductListView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+}
+
+struct ProductRow: View {
+    let product: Product
+
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 5) {
+                Text(product.name ?? "Unknown")
+                    .font(.headline)
+
+                Text(product.desc ?? "No description available")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .lineLimit(1)
+
+                HStack {
+                    Text("💰 $\(product.price, specifier: "%.2f")")
+                        .font(.caption)
+                        .foregroundColor(.blue)
+
+                    Spacer()
+
+                    Text("🏭 \(product.provider ?? "Unknown")")
+                        .font(.caption)
+                        .foregroundColor(.orange)
+                }
+            }
+            .padding(.vertical, 8)
+
+            Spacer()
+
+            Image(systemName: "chevron.right")
+                .foregroundColor(.gray)
+        }
+        .padding(.vertical, 10)
     }
 }
 

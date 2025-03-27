@@ -35,7 +35,7 @@ struct ProductDetailView: View {
 
                 VStack(spacing: 15) {
                     HStack {
-                        Text("Price:")
+                        Text("💰 Price:")
                             .font(.title2)
                             .bold()
                         Spacer()
@@ -49,7 +49,7 @@ struct ProductDetailView: View {
                     .cornerRadius(12)
 
                     HStack {
-                        Text("Provider:")
+                        Text("🏢 Provider:")
                             .font(.title2)
                             .bold()
                         Spacer()

@@ -24,14 +24,11 @@ struct ProductDetailView: View {
                     .shadow(radius: 10)
 
                 Text(product.desc ?? "No Description Available")
-                    .font(.body)
+                    .font(.subheadline)
                     .foregroundColor(.gray)
-                    .padding()
+                    .italic()
                     .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color(UIColor.systemGray6))
-                    .cornerRadius(12)
-                    .shadow(radius: 5)
+                    .padding(.horizontal)
 
                 VStack(spacing: 15) {
                     HStack {

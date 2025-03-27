@@ -25,12 +25,12 @@ struct ProductListView: View {
                             .scaledToFit()
                             .frame(width: 100, height: 100)
                             .foregroundColor(.gray)
-
+                        
                         Text("No Products Available")
                             .font(.headline)
                             .foregroundColor(.gray)
                             .padding(.top, 5)
-
+                        
                         Text("Tap the + button to add new products.")
                             .font(.subheadline)
                             .foregroundColor(.gray)
@@ -51,12 +51,22 @@ struct ProductListView: View {
                             }
                         }
                     }
+                    .listStyle(PlainListStyle())
                 }
             }
+            .navigationBarItems(trailing: NavigationLink(destination: AddProductView(viewModel: viewModel)) {
+                Image(systemName: "plus")
+                    .font(.title2)
+                    .padding(10)
+                    .background(Color.blue.opacity(0.1))
+                    .clipShape(Circle())
+            })
             .navigationBarTitleDisplayMode(.inline)
+            .padding()
         }
     }
 }
+
 
 struct ProductRow: View {
     let product: Product
@@ -76,9 +86,9 @@ struct ProductRow: View {
                     Text("💰 $\(product.price, specifier: "%.2f")")
                         .font(.caption)
                         .foregroundColor(.blue)
-
+                    
                     Spacer()
-
+                    
                     Text("🏭 \(product.provider ?? "Unknown")")
                         .font(.caption)
                         .foregroundColor(.orange)
@@ -87,7 +97,7 @@ struct ProductRow: View {
             .padding(.vertical, 8)
 
             Spacer()
-
+            
             Image(systemName: "chevron.right")
                 .foregroundColor(.gray)
         }
@@ -98,3 +108,4 @@ struct ProductRow: View {
 #Preview {
     ProductListView()
 }
+
